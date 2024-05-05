@@ -1,0 +1,121 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="540"
+        x:Class="GabrielShop.AdminListWindow"
+		x:CompileBindings ="False"
+        Title="Добавление и удаление товаров"
+		MaxWidth="960" MaxHeight="540"
+		MinWidth="960" MinHeight="540">
+		<Grid
+			RowDefinitions="410 65 65">
+			<Border
+				Grid.Row="0"
+				Width="960"
+				Height="410">
+				<ScrollViewer>
+					<StackPanel>
+						<ListBox
+							x:Name="admShopList">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<Border
+										BorderBrush="Gray"
+										BorderThickness="1"
+										CornerRadius="4"
+										Padding="10">
+										<WrapPanel>
+											<TextBlock
+												Text ="{Binding name}"
+												Margin="20 5"
+												HorizontalAlignment="Center"
+												VerticalAlignment="Center"
+												FontSize="20"
+												TextWrapping="Wrap"/>
+											<Image
+												Source="{Binding image}"
+												Margin="20 5"
+												HorizontalAlignment="Center"
+												VerticalAlignment="Center"
+												Width="150"
+												Height="125"/>
+											<TextBlock
+												Text="{Binding price}"
+												Margin="20 5 5 5"
+												HorizontalAlignment="Center"
+												VerticalAlignment="Center"
+												FontSize="20"/>
+											<TextBlock
+												Text="р."
+												HorizontalAlignment="Center"
+												VerticalAlignment="Center"
+												FontSize="20"/>
+											<Button
+												Click="ModifyProduct"
+												Content="Изменить"
+												Margin="100 5 0 5"
+												FontSize="20"/>
+											<Button
+												Click="DeleteProduct"
+												Content="Удалить"
+												Margin="20 5"
+												FontSize="20"/>
+										</WrapPanel>
+									</Border>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</StackPanel>
+				</ScrollViewer>
+			</Border>
+			<WrapPanel
+				Grid.Row="1"
+				Orientation="Horizontal"
+				Background="LightGray">
+				<TextBox
+					x:Name="Name"
+					Watermark="Название"
+					Text=""
+					FontSize="20"
+					Margin="20 15 0 0"/>
+				<TextBox
+					x:Name="Source"
+					Watermark="Изображение"
+					Text=""
+					FontSize="20"
+					Margin="20 15 0 0"/>
+				<TextBox
+					x:Name="Price"
+					Watermark="Цена"
+					Text=""
+					FontSize="20"
+					Margin="20 15 0 0"/>
+				<TextBlock
+					x:Name="Ex"
+					Text="Имя занято"
+					IsVisible="false"
+					Foreground="Red"
+					Margin="20 15 0 0"
+					FontSize="20"/>
+				<Button
+					x:Name="addProduct"
+					Content="Добавить"
+					FontSize="20"
+					Margin="20 15 0 0"
+					Click="AddProduct">
+				</Button>
+			</WrapPanel>
+			<StackPanel
+				Grid.Row="2"
+				Background="LightGray">
+				<Button
+					Content="Сменить пользователя"
+					FontSize="20"
+					Click="ChangeUser"
+					Margin="0 0 20 0"
+					HorizontalAlignment="Right">
+				</Button>
+			</StackPanel>
+		</Grid>
+</Window>

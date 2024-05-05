@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="300"
+        x:Class="GabrielShop.RedactWindow"
+		x:CompileBindings ="False"
+        Title="Редактирование товара"
+		MaxWidth="480" MaxHeight="300"
+		MinWidth="480" MinHeight="300">
+		<WrapPanel
+			Orientation="Vertical">
+			<TextBox
+				x:Name="redName"					
+				Text ="{Binding name}"
+				Margin="20 5"
+				FontSize="20"
+				TextWrapping="Wrap"/>
+			<TextBox
+				x:Name="redSource"
+				Text="{Binding image}"
+				Margin="20 5"
+				FontSize="20"/>
+			<TextBox
+				x:Name="redPrice"
+				Text="{Binding price}"
+				Margin="20 5"
+				FontSize="20"/>
+			<TextBlock
+				x:Name="redEx"
+				Text="Имя занято"
+				IsVisible="false"
+				Foreground="Red"
+				Margin="20 5"
+				FontSize="20"/>
+			<Button
+				Click="Save"
+				Content="Сохранить"
+				Margin="20 5"
+				FontSize="20"/>
+			<Button
+				Click="Cancel"
+				Content="Отмена"
+				Margin="20 5"
+				FontSize="20"/>
+		</WrapPanel>
+</Window>

@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Source\Image1.jpg" />
+    <None Remove="Source\Image2.jpg" />
+    <None Remove="Source\Image3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Source\Image1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Source\Image2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AvaloniaResource>
+    <AvaloniaResource Include="Source\Image3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AvaloniaResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="UserList.axaml.cs">
+      <DependentUpon>UserList.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="UserCart.axaml.cs">
+      <DependentUpon>UserCart.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="AdminList.axaml.cs">
+      <DependentUpon>AdminList.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Redact.axaml.cs">
+      <DependentUpon>Redact.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

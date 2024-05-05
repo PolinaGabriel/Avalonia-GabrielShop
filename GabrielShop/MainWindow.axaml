@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="960" d:DesignHeight="540"
+        x:Class="GabrielShop.MainWindow"
+		x:CompileBindings="False"
+        Title="Вход"
+		MaxWidth="960" MaxHeight="540"
+		MinWidth="960" MinHeight="540">
+	<Grid
+		ShowGridLines="False"
+		ColumnDefinitions="3* * * 3*"
+		RowDefinitions="* * *">
+		<StackPanel
+			Grid.Column="1"
+			Grid.Row="1" Grid.ColumnSpan="2"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Top">
+			<TextBlock
+				Text="Вход:"
+				FontSize="25"
+				FontWeight="Bold"/>
+		</StackPanel>
+		<StackPanel
+			Grid.Column="1"
+			Grid.Row="1"
+			Grid.ColumnSpan="2"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center">
+			<TextBox
+				x:Name="authorize"
+				FontSize="30"
+				Width="400"/>
+		</StackPanel>
+		<StackPanel
+			Grid.Column="1"
+			Grid.Row="1"
+			Grid.ColumnSpan="2"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Bottom">
+			<Button
+				Click="OpenShop"
+				Content="войти"
+				FontSize="25"/>
+		</StackPanel>
+	</Grid>
+</Window>
